@@ -1,1 +1,1 @@
-# CSUP-member-reg-sys
+Member Registration System for CSUP 
