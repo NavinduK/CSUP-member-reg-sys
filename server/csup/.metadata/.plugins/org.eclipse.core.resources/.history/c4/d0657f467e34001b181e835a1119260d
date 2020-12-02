@@ -1,0 +1,50 @@
+package com.example.demo;
+
+import java.util.*;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class BookService {
+	
+	private static List<Book> books = new ArrayList<>();
+	
+	private static int bookcount =3;
+	static {
+		
+		  books.add(new Book(1,"Harry potter",new Date()));
+		  books.add(new Book(2,"Gamperaliya",new Date()));
+		  books.add(new Book(3,"Kaliugaya",new Date()));
+		  books.add(new Book(4,"Uganthaya",new Date()));
+		
+	}
+	public List<Book> findallBooks(){
+		
+		return books;
+	}
+   public Book addBook(Book book) {
+	   if(book.getBookid() == null) {
+		   
+		   book.setBookid(bookcount++);
+	   }
+	  
+		   books.add(book);
+	       return book;	   
+   }
+   
+   public Book findBook(int id) {
+	   for(Book book : books) {
+		   if(book.getBookid()==id) {
+			   
+			   return book;
+		   }
+	   	   
+		   
+	   }
+	   
+	   return null;
+   }
+	   
+	   
+   }
+
