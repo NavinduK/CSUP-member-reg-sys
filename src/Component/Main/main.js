@@ -5,24 +5,18 @@ import { useHistory } from "react-router-dom";
 import { useForm} from "react-hook-form";
 
 const Main = () => {
-
 	const { post, response } = useFetch("http://localhost:3001/csup");
-
 	const history = useHistory();
-
 	const [regNo, setRegNo] = useState()
-
-
-
-
+	
 	let value = {
-        regNo: ''
-    }
+        	regNo: ''
+    	}
 
 	const { handleSubmit, register, errors } = useForm({
-        mode: "onBlur",
-        defaultValues: value
-    });
+        	mode: "onBlur",
+        	defaultValues: value
+    	});
 
 	const submitRegNo = async (event) => {
 		console.log(event)
@@ -49,7 +43,7 @@ const Main = () => {
 				  type="text"
 				  name="regNo"
 				  className={`${styles.inputCenter} form-control`}
-				  placeholder="Enter Your Registration Number"
+				  placeholder="Your Registration Number (Eg: S/XX/XXX)"
 				  aria-invalid={errors.email ? "true" : "false"}
 				  ref={register({
 					required: "email is required"
