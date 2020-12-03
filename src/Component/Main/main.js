@@ -49,7 +49,7 @@ const Main = () => {
 				  type="text"
 				  name="regNo"
 				  className={`${styles.inputCenter} form-control`}
-				  placeholder="Enter Your Registration Number"
+				  placeholder="Enter Your Registration Number (Eg-S17000)"
 				  aria-invalid={errors.email ? "true" : "false"}
 				  ref={register({
 					required: "email is required"
