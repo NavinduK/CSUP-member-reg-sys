@@ -10,7 +10,7 @@ const Main = () => {
 	const [regNo, setRegNo] = useState()
 	
 	let value = {
-        	regNo: ''
+        	"regNo": ""
     	}
 
 	const { handleSubmit, register, errors } = useForm({
@@ -23,9 +23,18 @@ const Main = () => {
 		await
 		post('/login/admin', event).then(result => {
 			if (response.ok) {
-				history.push('/adminlogin');
+				if (result.type=="admin") {
+					console.log('admin');
+					history.push('/adminlogin',{name : result.name});
+				}else if (result.type=="member") {
+					console.log('member',{name : result.name});
+					history.push('/');
+				}else{
+					console.log('new')
+					history.push('/register');
+				}
 			} else {
-				history.push('/register');
+				console.log('Invalid')
 			}
 
 		}).catch(err => {
