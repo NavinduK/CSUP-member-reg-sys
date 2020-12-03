@@ -60,6 +60,8 @@ public class Admins {
 	public void setPost(String post) {
 		this.post = post;
 	}
-	
-	
+	public String toString() {
+		return "Admins [fistName=" + fname + ", lastName=" + lname + ", regNo=" + regNo + ", email=" + email + ", phone="
+				+ phone + ", post=" + post + "]";
+	}
 }

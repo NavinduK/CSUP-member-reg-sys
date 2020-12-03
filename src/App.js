@@ -1,7 +1,7 @@
-import { Component } from "react";
+import React from "react";
 import "./App.css";
 import { BrowserRouter, Switch } from "react-router-dom";
-import Main from "./Component/Main/main";
+import Main from "./Component/Main/Main";
 import Register from "./Component/Register/register";
 import AdminLogin from "./Component/AdminLogin/adminlogin";
 import { Route } from "react-router-dom";
