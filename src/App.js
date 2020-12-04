@@ -12,10 +12,10 @@ function App() {
     <div>
       <BrowserRouter>
         <Switch>
-          <Route path="/register">
+          <Route path="/Register">
             <Register />
           </Route>
-          <Route path="/adminlogin">
+          <Route path="/Adminlogin">
             <AdminLogin />
           </Route>
           <Route path="/thankyou">

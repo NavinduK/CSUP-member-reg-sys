@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./register.module.scss";
+import styles from "./Register.module.scss";
 
 const Register = () => {
   return (

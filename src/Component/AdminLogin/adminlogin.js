@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './adminlogin.module.scss';
+import styles from './Adminlogin.module.scss';
 import { useLocation } from "react-router-dom";
 
 function Adminlogin() {
@@ -19,7 +19,7 @@ function Adminlogin() {
               className={`${styles.inputCenter} form-control`}
               placeholder="Enter Your Login Password"
             />
-            <input className="btn btn-primary" type="Verify" value="Verify" />
+            <input className="btn btn-primary" type="Sumbmit" value="Verify" />
           </form>
         </div>
       </div>
@@ -30,4 +30,4 @@ function Adminlogin() {
     )
 }
 
-export default Adminlogin
+export default Adminlogin;
