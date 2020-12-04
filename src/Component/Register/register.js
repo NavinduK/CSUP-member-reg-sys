@@ -1,14 +1,8 @@
 import React from "react";
-import styles from "./Register.module.scss";
+import styles from "./register.module.scss";
 import {useHistory} from 'react-router-dom';
 
-
-
-
-
-
 const Register = () => {
-
 
   const history = useHistory();
 
@@ -16,8 +10,6 @@ const routeChange = () =>{
   let path = "/"; 
   history.push(path);
 }
-
-
 
   return (
     <div className="container text-center">
