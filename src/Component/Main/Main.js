@@ -7,7 +7,6 @@ import { useForm} from "react-hook-form";
 const Main = () => {
 	const { post, response } = useFetch("http://localhost:3001/csup");
 	const history = useHistory();
-	const [regNo, setRegNo] = useState()
 	
 	let value = {
         	"regNo": ""
@@ -25,7 +24,7 @@ const Main = () => {
 			if (response.ok) {
 				if (result.type=="admin") {
 					console.log('admin');
-					history.push('/adminlogin',{name : result.name});
+					history.push('/login',{name : result.name});
 				}else if (result.type=="member") {
 					console.log('member',{name : result.name});
 					history.push('/');
