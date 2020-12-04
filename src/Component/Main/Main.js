@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import { useForm} from "react-hook-form";
 
 const Main = () => {
-	const { post, response } = useFetch("http://localhost:3001/csup");
+	const { post, response } = useFetch(process.env.REACT_APP_SERVER_BASE_URL);
 	const history = useHistory();
 	
 	let value = {
