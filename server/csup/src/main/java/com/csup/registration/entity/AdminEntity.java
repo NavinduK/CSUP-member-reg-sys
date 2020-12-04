@@ -1,15 +1,41 @@
-package com.csup.registration;
+package com.csup.registration.entity;
 
-public class Admins {
-	private String fname;
-	private String lname;
+import javax.persistence.Entity;
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "admin")
+public class AdminEntity {
+	
+	@Id
+	@Column(name="RegID")
 	private String regNo;
+	
+	@Column(name="First_Name")
+	private String fname;
+	
+	@Column(name="Last_Name")
+	private String lname;
+	
+	@Column(name="Email")
 	private String email;
+	
+	@Column(name="Contact_No")
 	private String phone;
-	private String password;
+	
+	@Column(name="Post")
 	private String post;
 	
-	public Admins(String fname, String lname, String regNo, String email, String phone, String password, String post) {
+	@Column(name="Password")
+	private String password;
+	
+	public AdminEntity() {
+		
+	}
+	
+	public AdminEntity(String regNo, String fname, String lname, String phone, String email, String post, String password) {
 		this.fname = fname;
 		this.lname = lname;
 		this.regNo = regNo;
@@ -61,7 +87,6 @@ public class Admins {
 		this.post = post;
 	}
 	public String toString() {
-		return "Admins [fistName=" + fname + ", lastName=" + lname + ", regNo=" + regNo + ", email=" + email + ", phone="
-				+ phone + ", post=" + post + "]";
+		return "regNo: "+ regNo;
 	}
 }

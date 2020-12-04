@@ -2,9 +2,9 @@ import React from "react";
 import "./App.css";
 import { BrowserRouter, Switch } from "react-router-dom";
 import Main from "./Component/Main/Main";
-import Register from "./Component/Register/register";
+import Register from "./Component/Register/Register";
 import Thankyou from "./Component/Thankyou/thankyou";
-import AdminLogin from "./Component/AdminLogin/adminlogin";
+import AdminLogin from "./Component/AdminLogin/Adminlogin";
 import { Route } from "react-router-dom";
 
 function App() {

@@ -1,18 +1,23 @@
 import React from 'react'
 import styles from './adminlogin.module.scss';
+import { useLocation } from "react-router-dom";
 
-function adminlogin() {
+function Adminlogin() {
+	const location = useLocation();
+    const name = location.state.name;
+	
     return (
         <div>
     <div className="container text-center" >
       <div className={`${styles.wrapCenter} row justify-content-center align-content-center`} >
         <div className="col ">
-          <h3>Admin  Login</h3>
+          <h3>Hello, {name}</h3>
           <form>
+			<p>Enter your login passowrd to continue to the Admin Panel</p>
             <input
               type="passowrd"
               className={`${styles.inputCenter} form-control`}
-              placeholder="Enter Your Registration Number"
+              placeholder="Enter Your Login Password"
             />
             <input className="btn btn-primary" type="Verify" value="Verify" />
           </form>
@@ -25,4 +30,4 @@ function adminlogin() {
     )
 }
 
-export default adminlogin
+export default Adminlogin
