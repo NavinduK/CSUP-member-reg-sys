@@ -6,6 +6,7 @@ import Register from "./Component/Register/Register";
 import Thankyou from "./Component/Thankyou/thankyou";
 import AdminLogin from "./Component/AdminLogin/Adminlogin";
 import { Route } from "react-router-dom";
+import AdminPanel from "./Component/AdminPanel/AdminPanel";
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
           </Route>
           <Route path="/thankyou">
             <Thankyou/>
+          </Route>
+          <Route path="/dashboard">
+            <AdminPanel/>
           </Route>
           <Route path="/">
             <Main />
