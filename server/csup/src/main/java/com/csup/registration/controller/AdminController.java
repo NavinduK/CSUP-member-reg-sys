@@ -29,7 +29,7 @@ public class AdminController {
 		return adminServices.findAllAdmin();
 	}
 	
-	@PostMapping(value="/login/admin")
+	@PostMapping(value="/verify/user")
 	public ResponseEntity<?> VerifyUser(@RequestBody RegNoDTO adminRegNo){
 		List <AdminEntity> admins = adminServices.findAllAdmin();
 		System.out.println(adminRegNo.getRegNo());
@@ -53,4 +53,25 @@ public class AdminController {
 				Map.of("type", "new"),
 				HttpStatus.OK);
 	 }
+	
+	
+	@PostMapping(value="/login/admin")
+	public ResponseEntity<?> VerifyUser(@RequestBody HashMap<String, String> user){
+		List <AdminEntity> admins = adminServices.findAllAdmin();
+		System.out.println(user);
+		for (int i = 0; i < admins.size(); i++) {
+	          if(admins.get(i).getRegNo().equalsIgnoreCase(user.get("regNo")) && admins.get(i).getPassword().equals(user.get("password"))) {
+	        	  System.out.println("valid");
+	        	  return new ResponseEntity<>(
+	        			  Map.of("res", "valid"),
+	        	          HttpStatus.OK);
+	          }
+	     }
+		System.out.println("not valid");
+		return new ResponseEntity<>(
+				Map.of("res", "not valid"),
+				HttpStatus.OK);
+	 }
+	 
+	 
 }
