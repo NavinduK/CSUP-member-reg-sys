@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React from "react";
 import styles from './Main.module.scss';
 import { useFetch } from 'use-http';
 import { useHistory } from "react-router-dom";
@@ -22,10 +22,10 @@ const Main = () => {
 		await
 		post('/login/admin', event).then(result => {
 			if (response.ok) {
-				if (result.type=="admin") {
+				if (result.type==="admin") {
 					console.log('admin');
 					history.push('/login',{name : result.name});
-				}else if (result.type=="member") {
+				}else if (result.type==="member") {
 					console.log('member',{name : result.name});
 					history.push('/');
 				}else{
