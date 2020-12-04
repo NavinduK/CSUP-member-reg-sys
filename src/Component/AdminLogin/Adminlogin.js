@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './adminlogin.module.scss';
+import styles from './Adminlogin.module.scss';
 import { useLocation } from "react-router-dom";
 
 function Adminlogin() {
