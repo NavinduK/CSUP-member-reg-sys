@@ -1,9 +1,9 @@
 import React from 'react'
-import styles from "./thankyou.module.scss";
+import styles from "./Thankyou.module.scss";
 
 
 
-function thankyou() {
+function Thankyou() {
     return (
         <div className="container text-center" >
         <div className={`${styles.wrapCenter} row justify-content-center align-content-center`} >
@@ -20,4 +20,4 @@ function thankyou() {
     )
 }
 
-export default thankyou;
+export default Thankyou;
