@@ -1,7 +1,24 @@
 import React from "react";
 import styles from "./Register.module.scss";
+import {useHistory} from 'react-router-dom';
+
+
+
+
+
 
 const Register = () => {
+
+
+  const history = useHistory();
+
+const routeChange = () =>{ 
+  let path = "/"; 
+  history.push(path);
+}
+
+
+
   return (
     <div className="container text-center">
       <div
@@ -54,10 +71,17 @@ const Register = () => {
                 rows="6"
               ></textarea>
             </div>
-            <button type="submit" className="btn btn-primary">
+
+            
+          </form>
+          <div>
+            <button type="submit" className= {`${styles.inner} btn btn-primary`} onClick={routeChange}>
+              Back to Login page
+            </button>
+            <button type="submit" className= {`${styles.inner} btn btn-primary`} >
               Submit
             </button>
-          </form>
+             </div>
         </div>
       </div>
     </div>
