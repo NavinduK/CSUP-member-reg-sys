@@ -20,11 +20,11 @@ const Main = () => {
 	const submitRegNo = async (event) => {
 		console.log(event)
 		await
-		post('/login/admin', event).then(result => {
+		post('/verify/user', event).then(result => {
 			if (response.ok) {
 				if (result.type==="admin") {
 					console.log('admin');
-					history.push('/login',{name : result.name});
+					history.push('/login',{name : result.name,regNo:event.regNo});
 				}else if (result.type==="member") {
 					console.log('member',{name : result.name});
 					history.push('/');
