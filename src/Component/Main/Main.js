@@ -27,10 +27,13 @@ const Main = () => {
 					history.push('/login',{name : result.name,regNo:event.regNo});
 				}else if (result.type==="member") {
 					console.log('member',{name : result.name});
-					history.push('/login',{name : result.name,regNo:event.regNo});
+					history.push('/alreadymember',{name : result.name,regNo:event.regNo});
+				}else if (result.type==="pending") {
+					console.log('pending',{name : result.name});
+					history.push('/done',{name : result.name,regNo:event.regNo});
 				}else{
 					console.log('new')
-					history.push('/register');
+					history.push('/register',{regNo:event.regNo});
 				}
 			} else {
 				console.log('Invalid')

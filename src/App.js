@@ -5,6 +5,7 @@ import Register from "./Component/Register/Register";
 import Thankyou from "./Component/Thankyou/Thankyou";
 import AdminLogin from "./Component/AdminLogin/Adminlogin";
 import AdminPanel from "./Component/AdminPanel/AdminPanel";
+import AlreadyMember from "./Component/AlreadyMember/AlreadyMember";
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
           </Route>
           <Route path="/done">
             <Thankyou/>
+          </Route>
+		  <Route path="/alreadymember">
+            <AlreadyMember/>
           </Route>
           <Route path="/dashboard">
             <AdminPanel/>
