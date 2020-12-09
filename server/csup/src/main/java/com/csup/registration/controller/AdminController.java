@@ -29,32 +29,6 @@ public class AdminController {
 		return adminServices.findAllAdmin();
 	}
 	
-	@PostMapping(value="/verify/user")
-	public ResponseEntity<?> VerifyUser(@RequestBody RegNoDTO adminRegNo){
-		List <AdminEntity> admins = adminServices.findAllAdmin();
-		System.out.println(adminRegNo.getRegNo());
-		for (int i = 0; i < admins.size(); i++) {
-	          if(admins.get(i).getRegNo().equalsIgnoreCase(adminRegNo.getRegNo())) {
-	        	  System.out.println("admin");
-	        	  //HashMap<String, String> response = new HashMap<>();
-	        	   // response.put("type", "admin");
-	        	    //response.put("name", admins.get(i).getFname() + " " + admins.get(i).getFname());
-	        	  return new ResponseEntity<>(
-	        			  Map.of(
-	        					  "type", "admin",
-	        					  "name", admins.get(i).getFname() + " " + admins.get(i).getLname()
-	        			   ),
-	        	          HttpStatus.OK);
-	          }
-	     } 
-		//Here if condition to verify the user is a member
-		System.out.println("new");
-		return new ResponseEntity<>(
-				Map.of("type", "new"),
-				HttpStatus.OK);
-	 }
-	
-	
 	@PostMapping(value="/login/admin")
 	public ResponseEntity<?> VerifyUser(@RequestBody HashMap<String, String> user){
 		List <AdminEntity> admins = adminServices.findAllAdmin();
