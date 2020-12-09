@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.csup.registration.dto.RegNoDTO;
 import com.csup.registration.entity.AdminEntity;
 import com.csup.registration.services.AdminServices;
 

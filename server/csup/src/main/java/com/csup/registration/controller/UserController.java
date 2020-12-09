@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.csup.registration.entity.AdminEntity;
 import com.csup.registration.entity.MemberEntity;
+import com.csup.registration.entity.PendingEntity;
+
 import com.csup.registration.services.AdminServices;
 import com.csup.registration.services.MemberServices;
+import com.csup.registration.services.PendingServices;
 
 @RestController
 @RequestMapping("csup")
@@ -25,11 +28,14 @@ public class UserController {
 	private AdminServices adminServices;
 	@Autowired
 	private MemberServices memberServices;
+	@Autowired
+	private PendingServices pendingServices;
 	
 	@PostMapping(value="/verify/user")
 	public ResponseEntity<?> VerifyUser(@RequestBody HashMap<String, String> userRegNo){
 		List <AdminEntity> admins = adminServices.findAllAdmin();
 		List <MemberEntity> members = memberServices.findAllMember();
+		List <PendingEntity> pending = pendingServices.findAllPending();
 		
 		System.out.println(userRegNo.get("regNo"));
 		//verify the user is a admin
@@ -56,7 +62,19 @@ public class UserController {
 	        	          HttpStatus.OK);
 	          }
 	     } 
-		//if not a member or admin, new member will return
+		 //verify the user is a Pending member
+		for (int i = 0; i < pending.size(); i++) {
+	          if(pending.get(i).getRegNo().equalsIgnoreCase(userRegNo.get("regNo"))) {
+	        	  System.out.println("pending");
+	        	  return new ResponseEntity<>(
+	        			  Map.of(
+	        					  "type", "pending",
+	        					  "name", pending.get(i).getFname() + " " + pending.get(i).getLname()
+	        			   ),
+	        	          HttpStatus.OK);
+	          }
+	     } 
+		//if not a member or admin or pending, new member will return
 		System.out.println("new");
 		return new ResponseEntity<>(
 				Map.of("type", "new"),
