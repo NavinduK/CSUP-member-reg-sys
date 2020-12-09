@@ -1,15 +1,21 @@
 package com.csup.registration.entity;
 
-import javax.persistence.Entity;
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "admin")
-public class AdminEntity {
-	
+@Table(name = "member")
+public class MemberEntity {
+
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="ID")
+	private Integer  id;
+	
 	@Column(name="Reg_No")
 	private String regNo;
 	
@@ -25,25 +31,27 @@ public class AdminEntity {
 	@Column(name="Contact_No")
 	private String phone;
 	
-	@Column(name="Post")
-	private String post;
+	@Column(name="Skills")
+	private String skills;
 	
-	@Column(name="Password")
-	private String password;
-	
-	public AdminEntity() {
+	public MemberEntity() {
 		
 	}
-	
-	public AdminEntity(String regNo, String fname, String lname, String phone, String email, String post, String password) {
+	public MemberEntity(Integer id, String regNo, String fname, String lname, String phone, String email, String skills) {
+		this.id = id;
 		this.fname = fname;
 		this.lname = lname;
 		this.regNo = regNo;
 		this.email = email;
 		this.phone = phone;
-		this.password = password;
-		this.post = post;
+		this.skills = skills;
 	}
+    public Integer getId() {
+        return id;
+    }
+    public void setId(Integer id) {
+        this.id = id;
+    }
 	public String getFname() {
 		return fname;
 	}
@@ -74,18 +82,13 @@ public class AdminEntity {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public String getPassword() {
-		return password;
+	public String getSkills() {
+		return skills;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setSkills(String skills) {
+		this.skills = skills;
 	}
-	public String getPost() {
-		return post;
-	}
-	public void setPost(String post) {
-		this.post = post;
-	}
+	@Override
 	public String toString() {
 		return "regNo: "+ regNo;
 	}

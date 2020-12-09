@@ -23,11 +23,11 @@ const Main = () => {
 		post('/verify/user', event).then(result => {
 			if (response.ok) {
 				if (result.type==="admin") {
-					console.log('admin');
+					console.log('admin',{name : result.name});
 					history.push('/login',{name : result.name,regNo:event.regNo});
 				}else if (result.type==="member") {
 					console.log('member',{name : result.name});
-					history.push('/');
+					history.push('/login',{name : result.name,regNo:event.regNo});
 				}else{
 					console.log('new')
 					history.push('/register');
