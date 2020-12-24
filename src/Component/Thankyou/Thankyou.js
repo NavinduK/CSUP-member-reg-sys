@@ -11,7 +11,7 @@ function Thankyou() {
   const { get, response } = useFetch(process.env.REACT_APP_SERVER_BASE_URL);
   const [values, setValues] = useState('');
   
-    useEffect(() => {
+  useEffect(() => {
 		if(sessionStorage.getItem('formSubmit')){
 			console.log('session exist');
 			setValues(JSON.parse(sessionStorage.getItem('formSubmit')));
@@ -24,10 +24,10 @@ function Thankyou() {
 			}
 			loadTOUpdate();
 		}
-    }, []);
+  }, []);
 	
   const onUpdate =  () =>{
-	history.push('/register',{regNo:regNo,update:values});
+	  history.push('/register',{regNo:regNo,update:values});
   }
 
   return (

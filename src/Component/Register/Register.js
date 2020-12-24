@@ -18,14 +18,11 @@ const Register = () => {
     defaultValues: updateValues
   });
 
-  const submitRegistration = async (event) => {
-    console.log(event.lname)
+  const submitRegistration = (event) => {
     const nameE = `${event.fname} ${event.lname}`;
-    await
       post('/pending/add', event).then(result => {
         if (response.ok) {
-          console.log('Done')
-		  sessionStorage.setItem('formSubmit',JSON.stringify(event));
+          sessionStorage.setItem('formSubmit', JSON.stringify(event));
           history.push('/done', { name: nameE, regNo: event.regNo });
         } else {
           console.log('Invalid')

@@ -17,10 +17,9 @@ const Main = () => {
         	defaultValues: value
     	});
 
-	const submitRegNo = async (event) => {
+	const submitRegNo = (event) => {
 		sessionStorage.removeItem('formSubmit');
 		console.log(event)
-		await
 		post('/verify/user', event).then(result => {
 			if (response.ok) {
 				if (result.type==="admin") {
