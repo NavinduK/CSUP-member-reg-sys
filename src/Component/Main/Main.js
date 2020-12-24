@@ -7,6 +7,7 @@ import { useForm} from "react-hook-form";
 const Main = () => {
 	const { post, response } = useFetch(process.env.REACT_APP_SERVER_BASE_URL);
 	const history = useHistory();
+	const [loading,setLoading] = React.useState(false);
 	
 	let value = {
         	"regNo": ""
@@ -18,6 +19,7 @@ const Main = () => {
     	});
 
 	const submitRegNo = (event) => {
+		setLoading(true);
 		sessionStorage.removeItem('formSubmit');
 		console.log(event)
 		post('/verify/user', event).then(result => {
@@ -47,22 +49,33 @@ const Main = () => {
 	return (
 		<div className="container text-center" >
 		  <div className={`${styles.wrapCenter} row justify-content-center align-content-center`} >
-			<div className="col ">
-			  <h3>Login</h3>
-			  <form onSubmit={handleSubmit(submitRegNo)}>
-				<input
-				  type="text"
-				  name="regNo"
-				  className={`${styles.inputCenter} form-control`}
-				  placeholder="Your Registration Number (Eg: S/XX/XXX)"
-				  aria-invalid={errors.email ? "true" : "false"}
-				  ref={register({
-					required: "email is required"
-				  })}
-				/>
-				<input className="btn btn-primary" type="submit" value="Submit" />
-			  </form>
-			</div>
+			
+				{loading ? 
+					(
+						<div class="spinner-border" role="status">
+						  <span class="sr-only">Loading...</span>
+						</div>
+					)
+					: 
+					( 
+						<div className="col ">
+						  <h3>Login</h3>
+						  <form onSubmit={handleSubmit(submitRegNo)}>
+							<input
+							  type="text"
+							  name="regNo"
+							  className={`${styles.inputCenter} form-control`}
+							  placeholder="Your Registration Number (Eg: S/XX/XXX)"
+							  aria-invalid={errors.email ? "true" : "false"}
+							  ref={register({
+								required: "email is required"
+							  })}
+							/>
+							<input className="btn btn-primary" type="submit" value="Submit" /> 
+						   </form>
+						</div>
+					)
+				}
 		  </div>
 		</div>
 	  );

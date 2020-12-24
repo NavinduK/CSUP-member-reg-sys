@@ -9,7 +9,8 @@ function Adminlogin() {
     const name = location.state.name;
     const regNo = location.state.regNo;
 	const [display, setDisplay] = useState('');
-
+	const [loading,setLoading] = React.useState(false);
+	
     const { post, response } = useFetch(process.env.REACT_APP_SERVER_BASE_URL);
     const history = useHistory();
 
@@ -24,6 +25,7 @@ function Adminlogin() {
     });
 
     const submitRegNo = async (event) => {
+		setLoading(true);
 		let event2 = {
 			regNo: regNo,
 			password: event.password
@@ -54,40 +56,50 @@ function Adminlogin() {
     return (
         <div>
             <div className="container text-center">
-                <div
-                    className={`${styles.wrapCenter} row justify-content-center align-content-center`}>
-                    <div className="col ">
-                        <h3>Hello, {name}</h3>
-                        <form onSubmit={handleSubmit(submitRegNo)}>
-                            <p>
-                                Enter your login password to continue to the
-                                Admin Panel
-                            </p>
-                            <input
-                                type="password"
-                                name="password"
-                                className={`${styles.inputCenter} form-control`}
-                                placeholder="Enter Your Login password"
-                                aria-invalid={errors.email ? "true" : "false"}
-                                ref={register({
-                                required: "password is required"
-                                })}
-                            />
-							<input
-                                className="btn btn-primary"
-                                type="submit"
-                                value="Verify"
-                            />
-							<div className={`row justify-content-center align-content-center`}>
-								<div style={{position:'absolute'}} className={`${display} mt-3 alert alert-warning alert-dismissible fade`} role="alert">
-								  Login credentials invalid. Try again!
-								  <button type="button" className="close" onClick={()=>{setDisplay('')}}>
-									<span aria-hidden="true">&times;</span>
-								  </button>
-								</div>
-                            </div>
-                        </form>
-                    </div>
+                <div className={`${styles.wrapCenter} row justify-content-center align-content-center`}>
+					{loading ? 
+						(
+							<div class="spinner-border" role="status">
+							  <span class="sr-only">Loading...</span>
+							</div>
+						)
+						:
+						(
+							<div className="col ">
+								<h3>Hello, {name}</h3>
+								<form onSubmit={handleSubmit(submitRegNo)}>
+									<p>
+										Enter your login password to continue to the
+										Admin Panel
+									</p>
+									<input
+										type="password"
+										name="password"
+										className={`${styles.inputCenter} form-control`}
+										placeholder="Enter Your Login password"
+										aria-invalid={errors.email ? "true" : "false"}
+										ref={register({
+										required: "password is required"
+										})}
+									/>
+									<input
+										className="btn btn-primary"
+										type="submit"
+										value="Verify"
+									/>
+									<div className={`row justify-content-center align-content-center`}>
+										<div style={{position:'absolute'}} className={`${display} mt-3 alert alert-warning alert-dismissible fade`} role="alert">
+										  Login credentials invalid. Try again!
+										  <button type="button" className="close" onClick={()=>{setDisplay('')}}>
+											<span aria-hidden="true">&times;</span>
+										  </button>
+										</div>
+									</div>
+								</form>
+							</div>
+						)
+						
+					}
                 </div>
             </div>
         </div>
