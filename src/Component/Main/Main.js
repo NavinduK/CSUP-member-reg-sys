@@ -18,6 +18,7 @@ const Main = () => {
     	});
 
 	const submitRegNo = async (event) => {
+		sessionStorage.removeItem('formSubmit');
 		console.log(event)
 		await
 		post('/verify/user', event).then(result => {

@@ -8,4 +8,5 @@ import com.csup.registration.entity.PendingEntity;
 public interface PendingServices {
 	Integer addPendingMember(PendingDTO dto);
 	List<PendingEntity> findAllPending();
+	PendingEntity findPendingById(String Reg_No);
 }

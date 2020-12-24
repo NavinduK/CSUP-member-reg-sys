@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,11 @@ public class PendingController {
 	@GetMapping(value="/pendings")
 	public List<PendingEntity> getPending(){
 		return pendingServices.findAllPending();
+	}
+
+	@GetMapping(value="/pendings/{Reg_No}")
+	public PendingEntity getPendingById(@PathVariable(value = "Reg_No") String Reg_No){
+		return pendingServices.findPendingById(Reg_No);
 	}
 	
 	@PostMapping(value="/pending/add")

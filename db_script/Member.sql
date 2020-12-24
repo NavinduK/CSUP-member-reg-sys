@@ -8,5 +8,5 @@ create table member(
 	Skills varchar(200)
 );
 
-INSERT INTO member (RegNo,First_Name,Last_Name,Contact_No,Email,Skills) VALUES ('S/17/001','Nimal','Rathnayaka','0111111111','nim@gmail.com','Graphic Design, Web Design');
-INSERT INTO member (RegNo,First_Name,Last_Name,Contact_No,Email,Skills) VALUES ('S/17/002','Bimal','karunanayake','0773468260','karubimal@gmail.com','MS-Office, Team Work, Event Handling');
+INSERT INTO member (Reg_No,First_Name,Last_Name,Contact_No,Email,Skills) VALUES ('S/17/001','Nimal','Rathnayaka','0111111111','nim@gmail.com','Graphic Design, Web Design');
+INSERT INTO member (Reg_No,First_Name,Last_Name,Contact_No,Email,Skills) VALUES ('S/17/002','Bimal','karunanayake','0773468260','karubimal@gmail.com','MS-Office, Team Work, Event Handling');
