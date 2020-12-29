@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import styles from "./Register.module.scss";
-import { useHistory, useLocation } from 'react-router-dom';
-import { useFetch } from 'use-http';
+import { useHistory, useLocation } from "react-router-dom";
+import { useFetch } from "use-http";
 import { useForm } from "react-hook-form";
 
 const Register = () => {
-  const { post, get, response } = useFetch(process.env.REACT_APP_SERVER_BASE_URL);
+  const { post, get, response } = useFetch(
+    process.env.REACT_APP_SERVER_BASE_URL
+  );
 
   const history = useHistory();
   const location = useLocation();
@@ -15,28 +17,29 @@ const Register = () => {
 
   const { handleSubmit, register, errors } = useForm({
     mode: "onBlur",
-    defaultValues: updateValues
+    defaultValues: updateValues,
   });
 
   const submitRegistration = (event) => {
     const nameE = `${event.fname} ${event.lname}`;
-      post('/pending/add', event).then(result => {
+    post("/pending/add", event)
+      .then((result) => {
         if (response.ok) {
-          sessionStorage.setItem('formSubmit', JSON.stringify(event));
-          history.push('/done', { name: nameE, regNo: event.regNo });
+          sessionStorage.setItem("formSubmit", JSON.stringify(event));
+          history.push("/done", { name: nameE, regNo: event.regNo });
         } else {
-          console.log('Invalid')
+          console.log("Invalid");
         }
-
-      }).catch(err => {
-        console.log('error', err);
       })
-  }
+      .catch((err) => {
+        console.log("error", err);
+      });
+  };
 
   const routeChange = () => {
     let path = "/";
     history.push(path);
-  }
+  };
 
   return (
     <div className="container text-center">
@@ -54,7 +57,7 @@ const Register = () => {
               value={regNo}
               aria-invalid={errors.email ? "true" : "false"}
               ref={register({
-                required: "email is required"
+                required: "email is required",
               })}
             />
             <div className="form-group">
@@ -66,7 +69,7 @@ const Register = () => {
                 placeholder="Enter your firstname"
                 aria-invalid={errors.email ? "true" : "false"}
                 ref={register({
-                  required: "email is required"
+                  required: "email is required",
                 })}
               />
             </div>
@@ -79,7 +82,7 @@ const Register = () => {
                 placeholder="Enter your Lastname"
                 aria-invalid={errors.email ? "true" : "false"}
                 ref={register({
-                  required: "email is required"
+                  required: "email is required",
                 })}
               />
             </div>
@@ -92,7 +95,7 @@ const Register = () => {
                 placeholder="Enter your email address"
                 aria-invalid={errors.email ? "true" : "false"}
                 ref={register({
-                  required: "email is required"
+                  required: "email is required",
                 })}
               />
               <small id="emailHelp" className="form-text text-muted">
@@ -108,10 +111,68 @@ const Register = () => {
                 placeholder="Enter your valied contact number"
                 aria-invalid={errors.email ? "true" : "false"}
                 ref={register({
-                  required: "email is required"
+                  required: "email is required",
                 })}
               />
             </div>
+
+            <div className="form-group">
+              <label className={`${styles.newform}`}>
+                Add socail Media networks
+              </label>
+
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-toggle="modal"
+                data-target="#exampleModalCenter"
+              >
+               
+               add
+               
+              </button>
+
+              <div
+                class="modal fade"
+                id="exampleModalCenter"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="exampleModalCenterTitle"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalCenterTitle">
+                        Modal title
+                      </h5>
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">...</div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                      <button type="button" class="btn btn-primary">
+                        Save changes
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="form-group">
               <label className={`${styles.newform}`}>Skills</label>
               <textarea
@@ -121,15 +182,24 @@ const Register = () => {
                 rows="6"
                 aria-invalid={errors.email ? "true" : "false"}
                 ref={register({
-                  required: "email is required"
+                  required: "email is required",
                 })}
               ></textarea>
             </div>
             <div>
-              <button style={{ minWidth: '6rem' }} className={`${styles.inner} btn btn-primary mr-4`} onClick={routeChange}>
+              <button
+                style={{ minWidth: "6rem" }}
+                className={`${styles.inner} btn btn-primary mr-4`}
+                onClick={routeChange}
+              >
                 Back
-				</button>
-              <input type="submit" style={{ minWidth: '6rem' }} className={`${styles.inner} btn btn-primary`} value="Submit" />
+              </button>
+              <input
+                type="submit"
+                style={{ minWidth: "6rem" }}
+                className={`${styles.inner} btn btn-primary`}
+                value="Submit"
+              />
             </div>
           </form>
         </div>

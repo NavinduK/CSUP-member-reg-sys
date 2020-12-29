@@ -7,10 +7,13 @@ import AdminLogin from "./Component/AdminLogin/Adminlogin";
 import AdminPanel from "./Component/AdminPanel/AdminPanel";
 import AlreadyMember from "./Component/AlreadyMember/AlreadyMember";
 
+
 function App() {
   return (
     <div>
+       
       <BrowserRouter>
+        
         <Switch>
           <Route path="/register">
             <Register />
@@ -21,7 +24,7 @@ function App() {
           <Route path="/done">
             <Thankyou/>
           </Route>
-		  <Route path="/alreadymember">
+		      <Route path="/alreadymember">
             <AlreadyMember/>
           </Route>
           <Route path="/dashboard">
