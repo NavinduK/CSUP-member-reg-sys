@@ -11,7 +11,7 @@
   }
   
   .logo {
-    width: 1800px;
+    width: 400px;
     margin-top: -8%;
   }
   .wrapCenter {
@@ -29,27 +29,27 @@
   .inputCenter {
     text-align: center;
     margin: 4rem auto 1rem auto;
-    width: 60rem;
-    height: 10rem;
+    width: 15rem;
+    height: 4rem;
     box-shadow: 0 0 7px 7px rgba(21, 95, 105, 0.3);
   }
   .button {
     font-family: Lato;
     font-style: normal;
     font-weight: 1800;
-    font-size: 60px;
+    font-size: 27px;
     line-height: 61px;
     align-items: center;
     text-align: center;
-    width: 60rem;
-    height: 15rem;
-    margin-top: 22%;
+    width: 20rem;
+    height: 5rem;
+    margin-top: 6%;
     background: linear-gradient(110.54deg, #10c99d 0.51%, #12aac2 100.73%);
     box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.3);
   }
   .col,h1{
   
-      font-size: 60px;
+      font-size: 20px;
   }
   
   
@@ -68,7 +68,7 @@
       box-shadow: 0 0 7px 7px rgba(21, 95, 105, 0.3);
     }
     .col,
-    h3 {
+    h1 {
       font-size: 15px;
     }
     .button {
@@ -86,7 +86,7 @@
       box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.3);
     }
   }
-  @media only screen and (max-width:768px) {
+  @media (max-width:780px) {
   
       .back {
      
@@ -105,8 +105,8 @@
       .inputCenter {
         text-align: center;
         margin: 4rem auto 1rem auto;
-        width: 10rem;
-        height: 2rem;
+        width: 8rem;
+        height: 1.7rem;
         box-shadow: 0 0 7px 7px rgba(21, 95, 105, 0.3);
         margin-top: 2vh;
       }
@@ -121,9 +121,9 @@
           box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.3);
           display: block;
         }
-      .col,h3 {
+      .col,h1 {
         margin-top:1rem;
-        font-size: 10px;
+        font-size: 12px;
       }
       .button {
           
@@ -136,7 +136,7 @@
         text-align: center;
         width: 10rem;
         height: 2.5rem;
-        margin-top: 5vh;
+        margin-top: 7vh;
         background: linear-gradient(110.54deg, #10c99d 0.51%, #12aac2 100.73%);
         box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.3);
       }
