@@ -3,6 +3,7 @@ import styles from './Main.module.scss';
 import { useFetch } from 'use-http';
 import { useHistory } from "react-router-dom";
 import { useForm} from "react-hook-form";
+import Logo from "./Logo.png";
 
 const Main = () => {
 	const { post, response } = useFetch(process.env.REACT_APP_SERVER_BASE_URL);
@@ -47,9 +48,12 @@ const Main = () => {
 	};
 	
 	return (
+		<div className={`${styles.back}`} >
+	     
 		<div className="container text-center" >
+		
 		  <div className={`${styles.wrapCenter} row justify-content-center align-content-center`} >
-			
+		  <img className = {`${styles.logo}`}src = {Logo}  alt="Logo"/>
 				{loading ? 
 					(
 						<div class="spinner-border" role="status">
@@ -58,25 +62,29 @@ const Main = () => {
 					)
 					: 
 					( 
-						<div className="col ">
-						  <h3>Login</h3>
+					
+						<div className="col">
+							
+						  <h1> Enter Your Regisration Number</h1>
 						  <form onSubmit={handleSubmit(submitRegNo)}>
 							<input
 							  type="text"
 							  name="regNo"
 							  className={`${styles.inputCenter} form-control`}
-							  placeholder="Your Registration Number (Eg: S/XX/XXX)"
+							  placeholder= "S/XX/XXX"
 							  aria-invalid={errors.email ? "true" : "false"}
 							  ref={register({
 								required: "email is required"
 							  })}
 							/>
-							<input className="btn btn-primary" type="submit" value="Submit" /> 
+							<input className={`${styles.button} btn btn-primary`} type="submit" value="NEXT" /> 
 						   </form>
+						   
 						</div>
 					)
 				}
 		  </div>
+		</div>
 		</div>
 	  );
 };
