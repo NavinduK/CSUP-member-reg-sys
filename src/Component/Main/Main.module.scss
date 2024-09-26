@@ -1,12 +1,143 @@
-.wrapCenter{
-    height:100vh;
-    margin: auto;
-    max-width: 30rem;
- 
-}
 
-.inputCenter {
-    text-align: center; 
-    margin: 3rem auto 1rem auto;
-    width: 25rem;
-}
+
+.back {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+  
+    background: linear-gradient(110.54deg, #10c99d 0.51%, #12aac2 100.73%);
+  }
+  
+  .logo {
+    width: 400px;
+    margin-top: -8%;
+  }
+  .wrapCenter {
+    position: absolute;
+    left: 34.07%;
+    right: 34.13%;
+    top: 14.43%;
+    bottom: 14.41%;
+    background-color: white;
+    border-radius: 3%;
+    box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.3);
+    display: block;
+  }
+  
+  .inputCenter {
+    text-align: center;
+    margin: 4rem auto 1rem auto;
+    width: 15rem;
+    height: 4rem;
+    box-shadow: 0 0 7px 7px rgba(21, 95, 105, 0.3);
+  }
+  .button {
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 1800;
+    font-size: 27px;
+    line-height: 61px;
+    align-items: center;
+    text-align: center;
+    width: 20rem;
+    height: 5rem;
+    margin-top: 6%;
+    background: linear-gradient(110.54deg, #10c99d 0.51%, #12aac2 100.73%);
+    box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.3);
+  }
+  .col,h1{
+  
+      font-size: 20px;
+  }
+  
+  
+  
+  @media  (max-width: 1200px) {
+    .logo {
+      width: 300px;
+      margin-top: -8%;
+    }
+  
+    .inputCenter {
+      text-align: center;
+      margin: 4rem auto 1rem auto;
+      width: 10rem;
+      height: 2rem;
+      box-shadow: 0 0 7px 7px rgba(21, 95, 105, 0.3);
+    }
+    .col,
+    h1 {
+      font-size: 15px;
+    }
+    .button {
+      font-family: Lato;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 31px;
+      align-items: center;
+      text-align: center;
+      width: 14rem;
+      height: 3rem;
+      margin-top: 22%;
+      background: linear-gradient(110.54deg, #10c99d 0.51%, #12aac2 100.73%);
+      box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.3);
+    }
+  }
+  @media (max-width:780px) {
+  
+      .back {
+     
+          left: 0%;
+          right: 0%;
+          top: 0%;
+          bottom: 0%;
+          background: linear-gradient(110.54deg, #10c99d 0.51%, #12aac2 100.73%);
+        }
+      .logo {
+        width: 300px;
+        margin-top: -8%;
+        
+      }
+    
+      .inputCenter {
+        text-align: center;
+        margin: 4rem auto 1rem auto;
+        width: 8rem;
+        height: 1.7rem;
+        box-shadow: 0 0 7px 7px rgba(21, 95, 105, 0.3);
+        margin-top: 2vh;
+      }
+      .wrapCenter {
+          position: absolute;
+          left: 20.07%;
+          right: 20.13%;
+          top: 20.43%;
+          bottom: 20.41%;
+          background-color: white;
+          border-radius: 3%;
+          box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.3);
+          display: block;
+        }
+      .col,h1 {
+        margin-top:1rem;
+        font-size: 12px;
+      }
+      .button {
+          
+        font-family: Lato;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 29px;
+        align-items: center;
+        text-align: center;
+        width: 10rem;
+        height: 2.5rem;
+        margin-top: 7vh;
+        background: linear-gradient(110.54deg, #10c99d 0.51%, #12aac2 100.73%);
+        box-shadow: 0 0 7px 7px rgba(0, 0, 0, 0.3);
+      }
+    } 
